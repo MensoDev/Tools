@@ -1,6 +1,6 @@
 ﻿namespace Menso.Tools.Exceptions;
 
-public static class ExceptionCreator
+internal static class ExceptionCreator
 {
     public static Exception CreateException(ExceptionInformation exceptionInformation)
     {

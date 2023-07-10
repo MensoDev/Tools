@@ -9,9 +9,11 @@ internal class HttpExceptionContext : IExceptionContext
         _errorStatusCode = errorStatusCode;
         When = new When(CreateException);
     }
-    
+
     public IWhen When { get; }
-    
-    private Exception CreateException(ExceptionInformation exceptionInformation) 
-        => ExceptionCreator.CreateHttpException(_errorStatusCode, exceptionInformation);
+
+    private Exception CreateException(ExceptionInformation exceptionInformation)
+    {
+        return ExceptionCreator.CreateHttpException(_errorStatusCode, exceptionInformation);
+    }
 }

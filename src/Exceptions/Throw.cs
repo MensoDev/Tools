@@ -7,6 +7,11 @@ public static partial class Throw
     public static IWhen When { get; } = new When(ExceptionCreator.CreateException);
 }
 
+public static class Throw<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TException> where TException : Exception, new()
+{
+    public static IWhen When { get; } = new When(ExceptionCreator.CreateException<TException>);
+}
+
 public static partial class Throw
 {
     public static class Http

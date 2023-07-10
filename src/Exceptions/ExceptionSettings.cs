@@ -1,6 +1,7 @@
 ﻿namespace Menso.Tools.Exceptions;
 
 public delegate Exception CreateExceptionHandle(ExceptionInformation exceptionInformation);
+
 public delegate Exception CreateHttpExceptionHandle(HttpStatusCode statusCode, ExceptionInformation exceptionInformation);
 
 public static class ExceptionSettings

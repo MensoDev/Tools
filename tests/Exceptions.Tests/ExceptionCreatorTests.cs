@@ -3,8 +3,9 @@
 public class ExceptionCreatorTests
 {
     private readonly ExceptionInformation _exceptionInformation = new("Test exception", "Test exception message", "teste");
+
     private readonly ExceptionInformation _exceptionInformationWithoutCustomMessage = new("Test exception", null, "teste");
-    
+
     [Fact]
     public void ShouldReturnsArgumentExceptionWhenCreateDefaultExceptionHandleIsNull()
     {
@@ -16,7 +17,12 @@ public class ExceptionCreatorTests
 
         // Assert
         exception.Should().BeOfType<ArgumentException>();
-        exception.Message.Should().Be($"{_exceptionInformation.CustomMessage} (Parameter '{_exceptionInformation.ParamName}')");
+        
+        exception
+            .Message
+            .Should()
+            .Be($"{_exceptionInformation.CustomMessage} (Parameter '{_exceptionInformation.ParamName}')");
+        
         ((ArgumentException)exception).ParamName.Should().Be(_exceptionInformation.ParamName);
     }
 
@@ -33,7 +39,7 @@ public class ExceptionCreatorTests
         exception.Should().BeOfType<HttpRequestException>();
         exception.Message.Should().Be(_exceptionInformation.CustomMessage);
     }
-    
+
     [Fact]
     public void ShouldReturnsHttpRequestExceptionWithWhenCreateDefaultHttpExceptionHandleIsNullWithDefaultMessage()
     {

@@ -11,7 +11,7 @@ public class ThrowTests
         object? argument = null;
 
         // Act
-        var execution = () => Throw.When.IsNull(argument);
+        var execution = () => Throw.When.BeNull(argument);
 
         // Assert
         execution
@@ -19,7 +19,7 @@ public class ThrowTests
             .ThrowExactly<ArgumentException>()
             .WithMessage("Argument 'argument' must not be null (Parameter 'argument')");
     }
-    
+
     [Fact]
     public void IsNull_WhenArgumentIsNotNull_DoesNotThrowException()
     {
@@ -27,16 +27,16 @@ public class ThrowTests
         var argument = new object();
 
         // Act
-        var execution = () => Throw.When.IsNull(argument);
+        var execution = () => Throw.When.BeNull(argument);
 
         // Assert
         execution.Should().NotThrow();
     }
 
     #endregion
-    
+
     #region String type
-    
+
     [Fact]
     public void IsEmpty_WhenStringArgumentIsEmpty_ThrowsArgumentException()
     {
@@ -44,7 +44,7 @@ public class ThrowTests
         var argument = string.Empty;
 
         // Act
-        var execution = () => Throw.When.IsEmpty(argument);
+        var execution = () => Throw.When.BeEmpty(argument);
 
         // Assert
         execution
@@ -52,7 +52,7 @@ public class ThrowTests
             .ThrowExactly<ArgumentException>()
             .WithMessage("Argument 'argument' must not be empty (Parameter 'argument')");
     }
-    
+
     [Fact]
     public void IsEmpty_WhenStringArgumentIsNotEmpty_DoesNotThrowException()
     {
@@ -60,16 +60,16 @@ public class ThrowTests
         const string argument = "not empty";
 
         // Act
-        var execution = () => Throw.When.IsEmpty(argument);
+        var execution = () => Throw.When.BeEmpty(argument);
 
         // Assert
         execution.Should().NotThrow();
     }
-    
+
     #endregion
-    
+
     #region Enumerable type
-    
+
     [Fact]
     public void IsEmpty_WhenEnumerableArgumentIsEmpty_ThrowsArgumentException()
     {
@@ -77,7 +77,7 @@ public class ThrowTests
         var argument = Enumerable.Empty<object>();
 
         // Act
-        var execution = () => Throw.When.IsEmpty(argument);
+        var execution = () => Throw.When.BeEmpty(argument);
 
         // Assert
         execution
@@ -85,7 +85,7 @@ public class ThrowTests
             .ThrowExactly<ArgumentException>()
             .WithMessage("Argument 'argument' must not be empty (Parameter 'argument')");
     }
-    
+
     [Fact]
     public void IsEmpty_WhenEnumerableArgumentIsNotEmpty_DoesNotThrowException()
     {
@@ -93,16 +93,16 @@ public class ThrowTests
         var argument = new[] { new object() };
 
         // Act
-        var execution = () => Throw.When.IsEmpty(argument);
+        var execution = () => Throw.When.BeEmpty(argument);
 
         // Assert
         execution.Should().NotThrow();
     }
-    
+
     #endregion
 
     #region HttpExceptionContext
-    
+
     [Fact]
     public void HttpContext_IsNull_WhenArgumentIsNull_ThrowsCustomException_Forbidden()
     {
@@ -110,7 +110,7 @@ public class ThrowTests
         object? argument = null;
 
         // Act
-        var execution = () => Throw.Http.Forbidden.When.IsNull(argument);
+        var execution = () => Throw.Http.Forbidden.When.BeNull(argument);
 
         // Assert
         execution
@@ -118,7 +118,7 @@ public class ThrowTests
             .ThrowExactly<HttpRequestException>()
             .WithMessage("Forbidden: Argument 'argument' must not be null");
     }
-    
+
     [Fact]
     public void HttpContext_IsNull_WhenArgumentIsNull_HttpRequestException_Unauthorized()
     {
@@ -126,7 +126,7 @@ public class ThrowTests
         object? argument = null;
 
         // Act
-        var execution = () => Throw.Http.Unauthorized.When.IsNull(argument);
+        var execution = () => Throw.Http.Unauthorized.When.BeNull(argument);
 
         // Assert
         execution
@@ -134,7 +134,7 @@ public class ThrowTests
             .ThrowExactly<HttpRequestException>()
             .WithMessage("Unauthorized: Argument 'argument' must not be null");
     }
-    
+
     [Fact]
     public void HttpContext_IsNull_WhenArgumentIsNull_ThrowsDefaultException_BadRequest()
     {
@@ -142,7 +142,7 @@ public class ThrowTests
         object? argument = null;
 
         // Act
-        var execution = () => Throw.Http.BadRequest.When.IsNull(argument);
+        var execution = () => Throw.Http.BadRequest.When.BeNull(argument);
 
         // Assert
         execution
@@ -150,21 +150,22 @@ public class ThrowTests
             .ThrowExactly<HttpRequestException>()
             .WithMessage("BadRequest: Argument 'argument' must not be null");
     }
-    
+
     [Fact]
     public void HttpContext_IsNull_WhenArgumentIsNull_ThrowsDefaultException_NotFound()
     {
         // Arrange
         object? argument = null;
-    
+
         // Act
-        var execution = () => Throw.Http.NotFound.When.IsNull(argument);
-        
+        var execution = () => Throw.Http.NotFound.When.BeNull(argument);
+
         // Assert
         execution
             .Should()
             .ThrowExactly<HttpRequestException>()
             .WithMessage("NotFound: Argument 'argument' must not be null");
     }
+
     #endregion
 }

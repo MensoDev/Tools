@@ -23,6 +23,7 @@
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -30,6 +31,12 @@
         <TrimMode>link</TrimMode>
         <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
     </PropertyGroup>
+
+    <ItemGroup>
+
+        <None Include="../../README.md" Pack="true" PackagePath="\"/>
+
+    </ItemGroup>
 
     <ItemGroup>
         <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">

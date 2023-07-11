@@ -1,11 +1,10 @@
 ﻿namespace Menso.Tools.Exceptions;
 
-public delegate Exception CreateExceptionHandle(ExceptionInformation exceptionInformation);
-
-public delegate Exception CreateHttpExceptionHandle(HttpStatusCode statusCode, ExceptionInformation exceptionInformation);
+public delegate Exception CreateExceptionHandler(ExceptionInformation exceptionInformation);
+public delegate Exception CreateHttpExceptionHandler(HttpStatusCode statusCode, ExceptionInformation exceptionInformation);
 
 public static class ExceptionSettings
 {
-    public static CreateExceptionHandle? CreateDefaultExceptionHandle { get; set; }
-    public static CreateHttpExceptionHandle? CreateDefaultHttpExceptionHandle { get; set; }
+    public static CreateExceptionHandler? CreateDefaultExceptionHandle { get; set; }
+    public static CreateHttpExceptionHandler? CreateDefaultHttpExceptionHandle { get; set; }
 }

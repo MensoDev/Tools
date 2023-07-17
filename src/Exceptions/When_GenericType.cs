@@ -16,13 +16,13 @@ internal partial class When
             ThrowException($"Argument '{paramName}' must be null", message, paramName, innerException);
     }
 
-    public void AreEqual<T>(T expected, T actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null)
+    public void AreEqual<T>(T? expected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null)
     {
         if(AreEqualsInternal(expected, actual))
             ThrowException($"Argument '{paramName}' must be not equal to '{expected}'", message, paramName, innerException);
     }
 
-    public void AreNotEqual<T>(T notExpected, T actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null)
+    public void AreNotEqual<T>(T? notExpected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null)
     {
         if(AreEqualsInternal(notExpected, actual) is false)
             ThrowException($"Argument '{paramName}' must be equal to '{notExpected}'", message, paramName, innerException);

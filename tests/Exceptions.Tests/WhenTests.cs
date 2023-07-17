@@ -98,6 +98,104 @@ public class WhenTests
         // Assert
         execution.Should().NotThrow();
     }
+    
+    [Fact]
+    public void AreEqual_WhenArgumentsAreEqual_ThrowsException()
+    {
+        // Arrange
+        const int expected = 1;
+        const int actual = 1;
+
+        // Act
+        var execution = () => _when.AreEqual(expected, actual);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'actual' must be not equal to '1' (Parameter 'actual')");
+    }
+    
+    [Fact]
+    public void AreEqual_WhenArgumentsAreEqual_ThrowsException_WithInnerException()
+    {
+        // Arrange
+        const int expected = 1;
+        const int actual = 1;
+
+        // Act
+        var execution = () => _when.AreEqual(expected, actual, innerException: _innerException);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'actual' must be not equal to '1' (Parameter 'actual')")
+            .WithInnerExceptionExactly<Exception>();
+    }
+    
+    [Fact]
+    public void AreEqual_WhenArgumentsAreNotEqual_DoesNotThrowException()
+    {
+        // Arrange
+        const int expected = 1;
+        const int actual = 2;
+
+        // Act
+        var execution = () => _when.AreEqual(expected, actual);
+
+        // Assert
+        execution.Should().NotThrow();
+    }
+    
+    [Fact]
+    public void AreNotEqual_WhenArgumentsAreNotEqual_ThrowsException()
+    {
+        // Arrange
+        const int expected = 1;
+        const int actual = 2;
+
+        // Act
+        var execution = () => _when.AreNotEqual(expected, actual);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'actual' must be equal to '1' (Parameter 'actual')");
+    }
+    
+    [Fact]
+    public void AreNotEqual_WhenArgumentsAreNotEqual_ThrowsException_WithInnerException()
+    {
+        // Arrange
+        const int expected = 1;
+        const int actual = 2;
+
+        // Act
+        var execution = () => _when.AreNotEqual(expected, actual, innerException: _innerException);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'actual' must be equal to '1' (Parameter 'actual')")
+            .WithInnerExceptionExactly<Exception>();
+    }
+    
+    [Fact]
+    public void AreNotEqual_WhenArgumentsAreEqual_DoesNotThrowException()
+    {
+        // Arrange
+        const int expected = 1;
+        const int actual = 1;
+
+        // Act
+        var execution = () => _when.AreNotEqual(expected, actual);
+
+        // Assert
+        execution.Should().NotThrow();
+    }
 
     #endregion
 

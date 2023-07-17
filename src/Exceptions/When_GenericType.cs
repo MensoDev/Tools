@@ -10,7 +10,7 @@ internal partial class When
             ThrowException($"Argument '{paramName}' must not be null", message, paramName, innerException);
     }
 
-    public void BeNotNull<T>(T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
+    public void NotBeNull<T>(T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
     {
         if (argument is not null)
             ThrowException($"Argument '{paramName}' must be null", message, paramName, innerException);

@@ -54,13 +54,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void IsNotNull_WhenArgumentIsNotNull_ThrowsException()
+    public void NotBeNull_WhenArgumentIsNotNull_ThrowsException()
     {
         // Arrange
         object argument = new();
 
         // Act
-        var execution = () => _when.BeNotNull(argument);
+        var execution = () => _when.NotBeNull(argument);
 
         // Assert
         execution
@@ -70,13 +70,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void IsNotNull_WhenArgumentIsNotNull_ThrowsException_WithInnerException()
+    public void NotBeNull_WhenArgumentIsNotNull_ThrowsException_WithInnerException()
     {
         // Arrange
         object argument = new();
 
         // Act
-        var execution = () => _when.BeNotNull(argument, innerException: _innerException);
+        var execution = () => _when.NotBeNull(argument, innerException: _innerException);
 
         // Assert
         execution
@@ -87,13 +87,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void IsNotNull_WhenArgumentIsNull_DoesNotThrowException()
+    public void NotBeNull_WhenArgumentIsNull_DoesNotThrowException()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => _when.BeNotNull(argument);
+        var execution = () => _when.NotBeNull(argument);
 
         // Assert
         execution.Should().NotThrow();

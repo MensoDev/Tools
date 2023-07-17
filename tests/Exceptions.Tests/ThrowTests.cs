@@ -32,7 +32,7 @@ public class ThrowTests
         // Assert
         execution.Should().NotThrow();
     }
-
+    
     #endregion
 
     #region String type

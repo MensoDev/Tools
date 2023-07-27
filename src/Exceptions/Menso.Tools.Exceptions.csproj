@@ -34,7 +34,7 @@
 
     <ItemGroup>
 
-        <None Include="../../README.md" Pack="true" PackagePath="\"/>
+        <None Include="../../docs/Exceptions/README.md" Pack="true" PackagePath="\"/>
 
     </ItemGroup>
 

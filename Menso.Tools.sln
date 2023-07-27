@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menso.Tools.Exceptions", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menso.Tools.Exceptions.Tests", "tests\Exceptions.Tests\Menso.Tools.Exceptions.Tests.csproj", "{53F60DB8-FCD7-4AFE-B432-6E0BC1E9D07B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scrambler", "Scrambler", "{7E1D3FEE-E887-4477-843D-7D5D807FB436}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menso.Tools.Scrambler", "src\Scrambler\Menso.Tools.Scrambler.csproj", "{41CF5937-8C60-4024-83DB-8156CF3F45D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +24,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9926B816-EFB5-448F-A543-940A9EED6D3C} = {781AC83B-B863-44E2-B94D-400FFE4BAF47}
 		{53F60DB8-FCD7-4AFE-B432-6E0BC1E9D07B} = {781AC83B-B863-44E2-B94D-400FFE4BAF47}
+		{41CF5937-8C60-4024-83DB-8156CF3F45D2} = {7E1D3FEE-E887-4477-843D-7D5D807FB436}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9926B816-EFB5-448F-A543-940A9EED6D3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +35,9 @@ Global
 		{53F60DB8-FCD7-4AFE-B432-6E0BC1E9D07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53F60DB8-FCD7-4AFE-B432-6E0BC1E9D07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53F60DB8-FCD7-4AFE-B432-6E0BC1E9D07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41CF5937-8C60-4024-83DB-8156CF3F45D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41CF5937-8C60-4024-83DB-8156CF3F45D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41CF5937-8C60-4024-83DB-8156CF3F45D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41CF5937-8C60-4024-83DB-8156CF3F45D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

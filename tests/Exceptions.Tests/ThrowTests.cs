@@ -5,13 +5,13 @@ public class ThrowTests
     #region Generics types
 
     [Fact]
-    public void IsNull_WhenArgumentIsNull_ThrowsArgumentNullException()
+    public void Null_WhenArgumentNull_ThrowsArgumentNullException()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => Throw.When.BeNull(argument);
+        var execution = () => Throw.When.Null(argument);
 
         // Assert
         execution
@@ -21,13 +21,13 @@ public class ThrowTests
     }
 
     [Fact]
-    public void IsNull_WhenArgumentIsNotNull_DoesNotThrowException()
+    public void Null_WhenArgumentNotNull_DoesNotThrowException()
     {
         // Arrange
         var argument = new object();
 
         // Act
-        var execution = () => Throw.When.BeNull(argument);
+        var execution = () => Throw.When.Null(argument);
 
         // Assert
         execution.Should().NotThrow();
@@ -44,7 +44,7 @@ public class ThrowTests
         var argument = string.Empty;
 
         // Act
-        var execution = () => Throw.When.BeEmpty(argument);
+        var execution = () => Throw.When.Empty(argument);
 
         // Assert
         execution
@@ -60,7 +60,7 @@ public class ThrowTests
         const string argument = "not empty";
 
         // Act
-        var execution = () => Throw.When.BeEmpty(argument);
+        var execution = () => Throw.When.Empty(argument);
 
         // Assert
         execution.Should().NotThrow();
@@ -71,13 +71,13 @@ public class ThrowTests
     #region Enumerable type
 
     [Fact]
-    public void IsEmpty_WhenEnumerableArgumentIsEmpty_ThrowsArgumentException()
+    public void Empty_WhenEnumerableArgumentEmpty_ThrowsArgumentException()
     {
         // Arrange
         var argument = Enumerable.Empty<object>();
 
         // Act
-        var execution = () => Throw.When.BeEmpty(argument);
+        var execution = () => Throw.When.Empty(argument);
 
         // Assert
         execution
@@ -87,13 +87,13 @@ public class ThrowTests
     }
 
     [Fact]
-    public void IsEmpty_WhenEnumerableArgumentIsNotEmpty_DoesNotThrowException()
+    public void Empty_WhenEnumerableArgumentNotEmpty_DoesNotThrowException()
     {
         // Arrange
         var argument = new[] { new object() };
 
         // Act
-        var execution = () => Throw.When.BeEmpty(argument);
+        var execution = () => Throw.When.Empty(argument);
 
         // Assert
         execution.Should().NotThrow();
@@ -104,13 +104,13 @@ public class ThrowTests
     #region HttpExceptionContext
 
     [Fact]
-    public void HttpContext_IsNull_WhenArgumentIsNull_ThrowsCustomException_Forbidden()
+    public void HttpContext_Null_WhenArgumentNull_ThrowsCustomException_Forbidden()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => Throw.Http.Forbidden.When.BeNull(argument);
+        var execution = () => Throw.Http.Forbidden.When.Null(argument);
 
         // Assert
         execution
@@ -120,13 +120,13 @@ public class ThrowTests
     }
 
     [Fact]
-    public void HttpContext_IsNull_WhenArgumentIsNull_HttpRequestException_Unauthorized()
+    public void HttpContext_Null_WhenArgumentNull_HttpRequestException_Unauthorized()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => Throw.Http.Unauthorized.When.BeNull(argument);
+        var execution = () => Throw.Http.Unauthorized.When.Null(argument);
 
         // Assert
         execution
@@ -136,13 +136,13 @@ public class ThrowTests
     }
 
     [Fact]
-    public void HttpContext_IsNull_WhenArgumentIsNull_ThrowsDefaultException_BadRequest()
+    public void HttpContext_Null_WhenArgumentNull_ThrowsDefaultException_BadRequest()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => Throw.Http.BadRequest.When.BeNull(argument);
+        var execution = () => Throw.Http.BadRequest.When.Null(argument);
 
         // Assert
         execution
@@ -152,13 +152,13 @@ public class ThrowTests
     }
 
     [Fact]
-    public void HttpContext_IsNull_WhenArgumentIsNull_ThrowsDefaultException_NotFound()
+    public void HttpContext_Null_WhenArgumentNull_ThrowsDefaultException_NotFound()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => Throw.Http.NotFound.When.BeNull(argument);
+        var execution = () => Throw.Http.NotFound.When.Null(argument);
 
         // Assert
         execution

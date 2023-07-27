@@ -4,25 +4,25 @@ internal partial class When
 {
     #region Generic types
 
-    public void BeNull<T>([NotNull] T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
+    public void Null<T>([NotNull] T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
     {
         if (argument is null)
             ThrowException($"Argument '{paramName}' must not be null", message, paramName, innerException);
     }
 
-    public void NotBeNull<T>(T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
+    public void NotNull<T>(T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
     {
         if (argument is not null)
             ThrowException($"Argument '{paramName}' must be null", message, paramName, innerException);
     }
 
-    public void AreEqual<T>(T? expected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null)
+    public void Equal<T>(T? expected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null)
     {
         if(AreEqualsInternal(expected, actual))
             ThrowException($"Argument '{paramName}' must be not equal to '{expected}'", message, paramName, innerException);
     }
 
-    public void AreNotEqual<T>(T? notExpected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null)
+    public void NotEqual<T>(T? notExpected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null)
     {
         if(AreEqualsInternal(notExpected, actual) is false)
             ThrowException($"Argument '{paramName}' must be equal to '{notExpected}'", message, paramName, innerException);

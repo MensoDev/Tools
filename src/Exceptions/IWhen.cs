@@ -4,39 +4,39 @@ public interface IWhen
 {
     #region Generic types
 
-    void BeNull<T>([NotNull] T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
-    void NotBeNull<T>(T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
-    void AreEqual<T>(T? expected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null);
-    void AreNotEqual<T>(T? notExpected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null);
+    void Null<T>([NotNull] T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void NotNull<T>(T? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void Equal<T>(T? expected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null);
+    void NotEqual<T>(T? notExpected, T? actual, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(actual))] string? paramName = null);
 
     #endregion
 
     #region String type
 
-    void BeEmpty(string argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
-    void BeEmptyOrNull(string? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
-    void BeNullOrWhiteSpace(string? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void Empty(string argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void EmptyOrNull(string? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void NullOrWhiteSpace(string? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
 
     #endregion
 
     #region Enumerable type
 
-    void BeEmpty<T>(IEnumerable<T> argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
-    void BeEmptyOrNull<T>(IEnumerable<T>? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void Empty<T>(IEnumerable<T> argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void EmptyOrNull<T>(IEnumerable<T>? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
 
     #endregion
 
     #region Guid type
 
-    void BeEmpty(Guid argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
-    void BeEmptyOrNull(Guid? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void Empty(Guid argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void EmptyOrNull(Guid? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
 
     #endregion
 
     #region Boolean type
 
-    void BeTrue(bool argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
-    void BeFalse(bool argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void True(bool argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
+    void False(bool argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null);
 
     #endregion
 

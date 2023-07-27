@@ -3,13 +3,13 @@
 public class ThrowGenerics
 {
     [Fact]
-    public void ThrowGeneric_ThrowWhenBeNull_Default()
+    public void ThrowGeneric_ThrowWhenNull_Default()
     {
         // Arrange
         string? value = null;
 
         // Act
-        var execution = () => Throw<ApplicationException>.When.BeNull(value);
+        var execution = () => Throw<ApplicationException>.When.Null(value);
 
         // Assert
         execution
@@ -22,14 +22,14 @@ public class ThrowGenerics
     }
 
     [Fact]
-    public void ThrowGeneric_ThrowWhenBeNull_WithInnerException()
+    public void ThrowGeneric_ThrowWhenNull_WithInnerException()
     {
         // Arrange
         string? value = null;
         var innerException = new Exception("This is an inner exception");
 
         // Act
-        var execution = () => Throw<ApplicationException>.When.BeNull(value, innerException: innerException);
+        var execution = () => Throw<ApplicationException>.When.Null(value, innerException: innerException);
 
         // Assert
         execution
@@ -40,14 +40,14 @@ public class ThrowGenerics
     }
 
     [Fact]
-    public void ThrowGeneric_ThrowWhenBeNull_WithCustomMessageAndInnerException()
+    public void ThrowGeneric_ThrowWhenNull_WithCustomMessageAndInnerException()
     {
         // Arrange
         string? value = null;
         var innerException = new Exception("This is an inner exception");
 
         // Act
-        var execution = () => Throw<ApplicationException>.When.BeNull(value, "Custom Test", innerException);
+        var execution = () => Throw<ApplicationException>.When.Null(value, "Custom Test", innerException);
 
         // Assert
         execution

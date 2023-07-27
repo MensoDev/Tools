@@ -8,13 +8,13 @@ public class WhenTests
     #region Generic Types
 
     [Fact]
-    public void IsNull_WhenArgumentIsNull_ThrowsException()
+    public void Null_WhenArgumentIsNull_ThrowsException()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => _when.BeNull(argument);
+        var execution = () => _when.Null(argument);
 
         // Assert
         execution
@@ -24,13 +24,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void IsNull_WhenArgumentIsNull_ThrowsException_WithInnerException()
+    public void Null_WhenArgumentIsNull_ThrowsException_WithInnerException()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => _when.BeNull(argument, innerException: _innerException);
+        var execution = () => _when.Null(argument, innerException: _innerException);
 
         // Assert
         execution
@@ -41,26 +41,26 @@ public class WhenTests
     }
 
     [Fact]
-    public void IsNull_WhenArgumentIsNotNull_DoesNotThrowException()
+    public void Null_WhenArgumentIsNotNull_DoesNotThrowException()
     {
         // Arrange
         object argument = new();
 
         // Act
-        var execution = () => _when.BeNull(argument);
+        var execution = () => _when.Null(argument);
 
         // Assert
         execution.Should().NotThrow();
     }
 
     [Fact]
-    public void NotBeNull_WhenArgumentIsNotNull_ThrowsException()
+    public void NotNull_WhenArgumentIsNotNull_ThrowsException()
     {
         // Arrange
         object argument = new();
 
         // Act
-        var execution = () => _when.NotBeNull(argument);
+        var execution = () => _when.NotNull(argument);
 
         // Assert
         execution
@@ -70,13 +70,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void NotBeNull_WhenArgumentIsNotNull_ThrowsException_WithInnerException()
+    public void NotNull_WhenArgumentIsNotNull_ThrowsException_WithInnerException()
     {
         // Arrange
         object argument = new();
 
         // Act
-        var execution = () => _when.NotBeNull(argument, innerException: _innerException);
+        var execution = () => _when.NotNull(argument, innerException: _innerException);
 
         // Assert
         execution
@@ -87,27 +87,27 @@ public class WhenTests
     }
 
     [Fact]
-    public void NotBeNull_WhenArgumentIsNull_DoesNotThrowException()
+    public void NotNull_WhenArgumentIsNull_DoesNotThrowException()
     {
         // Arrange
         object? argument = null;
 
         // Act
-        var execution = () => _when.NotBeNull(argument);
+        var execution = () => _when.NotNull(argument);
 
         // Assert
         execution.Should().NotThrow();
     }
     
     [Fact]
-    public void AreEqual_WhenArgumentsAreEqual_ThrowsException()
+    public void Equal_WhenArgumentsIsEqual_ThrowsException()
     {
         // Arrange
         const int expected = 1;
         const int actual = 1;
 
         // Act
-        var execution = () => _when.AreEqual(expected, actual);
+        var execution = () => _when.Equal(expected, actual);
 
         // Assert
         execution
@@ -117,14 +117,14 @@ public class WhenTests
     }
     
     [Fact]
-    public void AreEqual_WhenArgumentsAreEqual_ThrowsException_WithInnerException()
+    public void Equal_WhenArgumentsIsEqual_ThrowsException_WithInnerException()
     {
         // Arrange
         const int expected = 1;
         const int actual = 1;
 
         // Act
-        var execution = () => _when.AreEqual(expected, actual, innerException: _innerException);
+        var execution = () => _when.Equal(expected, actual, innerException: _innerException);
 
         // Assert
         execution
@@ -135,28 +135,28 @@ public class WhenTests
     }
     
     [Fact]
-    public void AreEqual_WhenArgumentsAreNotEqual_DoesNotThrowException()
+    public void Equal_WhenArgumentsIsNotEqual_DoesNotThrowException()
     {
         // Arrange
         const int expected = 1;
         const int actual = 2;
 
         // Act
-        var execution = () => _when.AreEqual(expected, actual);
+        var execution = () => _when.Equal(expected, actual);
 
         // Assert
         execution.Should().NotThrow();
     }
     
     [Fact]
-    public void AreNotEqual_WhenArgumentsAreNotEqual_ThrowsException()
+    public void NotEqual_WhenArgumentsIsNotEqual_ThrowsException()
     {
         // Arrange
         const int expected = 1;
         const int actual = 2;
 
         // Act
-        var execution = () => _when.AreNotEqual(expected, actual);
+        var execution = () => _when.NotEqual(expected, actual);
 
         // Assert
         execution
@@ -166,14 +166,14 @@ public class WhenTests
     }
     
     [Fact]
-    public void AreNotEqual_WhenArgumentsAreNotEqual_ThrowsException_WithInnerException()
+    public void NotEqual_WhenArgumentsIsNotEqual_ThrowsException_WithInnerException()
     {
         // Arrange
         const int expected = 1;
         const int actual = 2;
 
         // Act
-        var execution = () => _when.AreNotEqual(expected, actual, innerException: _innerException);
+        var execution = () => _when.NotEqual(expected, actual, innerException: _innerException);
 
         // Assert
         execution
@@ -184,14 +184,14 @@ public class WhenTests
     }
     
     [Fact]
-    public void AreNotEqual_WhenArgumentsAreEqual_DoesNotThrowException()
+    public void NotEqual_WhenArgumentsIsEqual_DoesNotThrowException()
     {
         // Arrange
         const int expected = 1;
         const int actual = 1;
 
         // Act
-        var execution = () => _when.AreNotEqual(expected, actual);
+        var execution = () => _when.NotEqual(expected, actual);
 
         // Assert
         execution.Should().NotThrow();
@@ -202,13 +202,13 @@ public class WhenTests
     #region String Type
 
     [Fact]
-    public void BeEmpty_WhenStringArgumentIsEmpty_ThrowsException()
+    public void Empty_WhenStringArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = string.Empty;
 
         // Act
-        var execution = () => _when.BeEmpty(argument);
+        var execution = () => _when.Empty(argument);
 
         // Assert
         execution
@@ -218,26 +218,26 @@ public class WhenTests
     }
 
     [Fact]
-    public void BeEmpty_WhenStringArgumentIsNotEmpty_DoesNotThrowException()
+    public void Empty_WhenStringArgumentIsNotEmpty_DoesNotThrowException()
     {
         // Arrange
         const string argument = "not empty";
 
         // Act
-        var execution = () => _when.BeEmpty(argument);
+        var execution = () => _when.Empty(argument);
 
         // Assert
         execution.Should().NotThrow();
     }
     
     [Fact]
-    public void BeEmptyOrNull_WhenStringArgumentIsEmpty_ThrowsException()
+    public void EmptyOrNull_WhenStringArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = string.Empty;
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution
@@ -247,13 +247,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void BeEmptyOrNull_WhenStringArgumentIsNull_ThrowsException()
+    public void EmptyOrNull_WhenStringArgumentIsNull_ThrowsException()
     {
         // Arrange
         string argument = null!;
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution
@@ -263,26 +263,26 @@ public class WhenTests
     }
 
     [Fact]
-    public void BeEmptyOrNull_WhenStringArgumentIsNotEmptyOrNull_DoesNotThrowException()
+    public void EmptyOrNull_WhenStringArgumentIsNotEmptyOrNull_DoesNotThrowException()
     {
         // Arrange
         const string argument = "not empty";
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution.Should().NotThrow();
     }
 
     [Fact]
-    public void BeNullOrWhiteSpace_WhenStringArgumentIsEmpty_ThrowsException()
+    public void NullOrWhiteSpace_WhenStringArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = string.Empty;
 
         // Act
-        var execution = () => _when.BeNullOrWhiteSpace(argument);
+        var execution = () => _when.NullOrWhiteSpace(argument);
 
         // Assert
         execution
@@ -292,13 +292,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void BeNullOrWhiteSpace_WhenStringArgumentIsNull_ThrowsException()
+    public void NullOrWhiteSpace_WhenStringArgumentIsNull_ThrowsException()
     {
         // Arrange
         string argument = null!;
 
         // Act
-        var execution = () => _when.BeNullOrWhiteSpace(argument);
+        var execution = () => _when.NullOrWhiteSpace(argument);
 
         // Assert
         execution
@@ -308,13 +308,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void BeNullOrWhiteSpace_WhenStringArgumentIsNotEmptyOrNull_DoesNotThrowException()
+    public void NullOrWhiteSpace_WhenStringArgumentIsNotEmptyOrNull_DoesNotThrowException()
     {
         // Arrange
         const string argument = "not empty";
 
         // Act
-        var execution = () => _when.BeNullOrWhiteSpace(argument);
+        var execution = () => _when.NullOrWhiteSpace(argument);
 
         // Assert
         execution.Should().NotThrow();
@@ -325,13 +325,13 @@ public class WhenTests
     #region Enumerable Type
 
     [Fact]
-    public void BeEmpty_WhenEnumerableArgumentIsEmpty_ThrowsException()
+    public void Empty_WhenEnumerableArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = Enumerable.Empty<object>();
 
         // Act
-        var execution = () => _when.BeEmpty(argument);
+        var execution = () => _when.Empty(argument);
 
         // Assert
         execution
@@ -341,26 +341,26 @@ public class WhenTests
     }
 
     [Fact]
-    public void BeEmpty_WhenEnumerableArgumentIsNotEmpty_DoesNotThrowException()
+    public void Empty_WhenEnumerableArgumentIsNotEmpty_DoesNotThrowException()
     {
         // Arrange
         var argument = new[] { new object() };
 
         // Act
-        var execution = () => _when.BeEmpty(argument);
+        var execution = () => _when.Empty(argument);
 
         // Assert
         execution.Should().NotThrow();
     }
     
     [Fact]
-    public void BeEmptyOrNull_WhenEnumerableArgumentIsEmpty_ThrowsException()
+    public void EmptyOrNull_WhenEnumerableArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = Enumerable.Empty<object>();
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution
@@ -370,13 +370,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void BeEmptyOrNull_WhenEnumerableArgumentIsNull_ThrowsException()
+    public void EmptyOrNull_WhenEnumerableArgumentIsNull_ThrowsException()
     {
         // Arrange
         IEnumerable<object> argument = null!;
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution
@@ -386,13 +386,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void BeEmptyOrNull_WhenEnumerableArgumentIsNotEmpty_DoesNotThrowException()
+    public void EmptyOrNull_WhenEnumerableArgumentIsNotEmpty_DoesNotThrowException()
     {
         // Arrange
         var argument = new[] { new object() };
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution.Should().NotThrow();
@@ -403,26 +403,26 @@ public class WhenTests
     #region Guid Type
     
     [Fact]
-    public void BeEmpty_WhenGuidArgumentIsNotEmpty_DoesNotThrowException()
+    public void Empty_WhenGuidArgumentIsNotEmpty_DoesNotThrowException()
     {
         // Arrange
         var argument = Guid.NewGuid();
 
         // Act
-        var execution = () => _when.BeEmpty(argument);
+        var execution = () => _when.Empty(argument);
 
         // Assert
         execution.Should().NotThrow<ArgumentException>();
     }
     
     [Fact]
-    public void BeEmpty_WhenGuidArgumentIsEmpty_ThrowsException()
+    public void Empty_WhenGuidArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = Guid.Empty;
 
         // Act
-        var execution = () => _when.BeEmpty(argument);
+        var execution = () => _when.Empty(argument);
 
         // Assert
         execution
@@ -432,13 +432,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void BeEmptyOrNull_WhenGuidArgumentIsEmpty_ThrowsException()
+    public void EmptyOrNull_WhenGuidArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = Guid.Empty;
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution
@@ -448,13 +448,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void BeEmptyOrNull_WhenGuidArgumentIsNull_ThrowsException()
+    public void EmptyOrNull_WhenGuidArgumentIsNull_ThrowsException()
     {
         // Arrange
         Guid? argument = null;
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution
@@ -464,13 +464,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void BeEmptyOrNull_WhenGuidArgumentIsNotEmptyOrNull_DoesNotThrowException()
+    public void EmptyOrNull_WhenGuidArgumentIsNotEmptyOrNull_DoesNotThrowException()
     {
         // Arrange
         var argument = Guid.NewGuid();
 
         // Act
-        var execution = () => _when.BeEmptyOrNull(argument);
+        var execution = () => _when.EmptyOrNull(argument);
 
         // Assert
         execution.Should().NotThrow<ArgumentException>();
@@ -481,13 +481,13 @@ public class WhenTests
     #region Boolean Type
     
     [Fact]
-    public void BeFalse_WhenBooleanArgumentIsFalse_ThrowsException()
+    public void False_WhenBooleanArgumentIsFalse_ThrowsException()
     {
         // Arrange
         const bool argument = false;
 
         // Act
-        var execution = () => _when.BeFalse(argument);
+        var execution = () => _when.False(argument);
 
         // Assert
         execution
@@ -497,26 +497,26 @@ public class WhenTests
     }
     
     [Fact]
-    public void BeFalse_WhenBooleanArgumentIsTrue_DoesNotThrowException()
+    public void False_WhenBooleanArgumentIsTrue_DoesNotThrowException()
     {
         // Arrange
         const bool argument = true;
 
         // Act
-        var execution = () => _when.BeFalse(argument);
+        var execution = () => _when.False(argument);
 
         // Assert
         execution.Should().NotThrow<ArgumentException>();
     }
     
     [Fact]
-    public void BeTrue_WhenBooleanArgumentIsTrue_ThrowsException()
+    public void True_WhenBooleanArgumentIsTrue_ThrowsException()
     {
         // Arrange
         const bool argument = true;
 
         // Act
-        var execution = () => _when.BeTrue(argument);
+        var execution = () => _when.True(argument);
 
         // Assert
         execution
@@ -526,13 +526,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void BeTrue_WhenBooleanArgumentIsFalse_DoesNotThrowException()
+    public void True_WhenBooleanArgumentIsFalse_DoesNotThrowException()
     {
         // Arrange
         const bool argument = false;
 
         // Act
-        var execution = () => _when.BeTrue(argument);
+        var execution = () => _when.True(argument);
 
         // Assert
         execution.Should().NotThrow<ArgumentException>();

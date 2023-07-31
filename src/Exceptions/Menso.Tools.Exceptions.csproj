@@ -33,9 +33,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-
         <None Include="../../docs/Exceptions/README.md" Pack="true" PackagePath="\"/>
-
     </ItemGroup>
 
     <ItemGroup>

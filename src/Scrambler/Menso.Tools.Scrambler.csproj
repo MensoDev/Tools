@@ -1,10 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>Menso.Tools.Scrambler</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Company>Menso</Company>
+        <Authors>Emerson Trindade (MensoDev)</Authors>
+        <Copyright>Copyright 2023 Menso</Copyright>
+        <PackageTags>C#, Csharp, List, Shuffle, Fisher–Yates, Fisher–Yates shuffle</PackageTags>
+        <PackageDescription>This library has utilities to shuffle lists of generic types using the Fisher–Yates shuffle algorithm.</PackageDescription>
+        <RepositoryUrl>https://github.com/MensoDev/Tools</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsTrimmable>true</IsTrimmable>
+        <TrimMode>link</TrimMode>
+        <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../../docs/Scrambler/README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 
 </Project>

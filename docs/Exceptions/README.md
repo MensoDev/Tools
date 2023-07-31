@@ -18,7 +18,7 @@ public void ConfigureExceptionLaucher(this IServiceCollection services)
 {
     ExceptionSettings.CreateExceptionHandler = exceptionInformation =>
     {
-        // Crete your own exception and return it
+        // Create your own exception and return it
         
         // sample
         var message = exceptionInformation.CustomMessage ?? exceptionInformation.DefaultMessage;
@@ -33,7 +33,7 @@ public void ConfigureExceptionLaucher(this IServiceCollection services)
 {
     ExceptionSettings.CreateHttpExceptionHandler = (statusCode, exceptionInformation) =>
     {
-        // Crete your own exception and return it
+        // Create your own exception and return it
         
         // sample
         var message = exceptionInformation.CustomMessage ?? $"{errorStatusCode}: {exceptionInformation.DefaultMessage}";
@@ -53,16 +53,27 @@ public void Sample()
     var message = "sample message";
     var innerException = new Exception("Inner exception");
     
-    Throw.When.BeNull(argument);
-    Throw.When.BeNull(argument, message);
-    Throw.When.BeNull(argument, message, innerException);
+    Throw.When.Null(argument);
+    Throw.When.Null(argument, message);
+    Throw.When.Null(argument, message, innerException);
               
-    Throw<CustomException>.When.BeNull(argument);
-    Throw<CustomException>.When.BeNull(argument, message);
-    Throw<CustomException>.When.BeNull(argument, message, innerException);    
+    Throw<CustomException>.When.Null(argument);
+    Throw<CustomException>.When.Null(argument, message);
+    Throw<CustomException>.When.Null(argument, message, innerException);    
 }
 ```
 
-<br>
+```csharp
+public void Sample_WithHttpException()
+{
+    object? argument = null;
+    var message = "sample message";
+    var innerException = new Exception("Inner exception");
+    
+    Throw.Http.BadRequest.When.Null(argument);
+    Throw.Http.BadRequest.When.Null(argument, message);
+    Throw.Http.BadRequest.When.Null(argument, message, innerException); 
+}
+```
 
 ### We are open to suggestions and collaborations

@@ -15,10 +15,7 @@ jobs:
       
       # Replace this whichever way you build your code
       - name: Build & Test dotnet code
-        run: |
-          dotnet restore
-          dotnet build -c Release no-restore
-          dotnet test -c Release --no-restore --no-build --blame-hang --blame-hang-timeout 60s /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:SkipAutoProps=true /p:CoverletOutput='./TestResults/'
+        run: dotnet test -c Release --blame-hang --blame-hang-timeout 60s /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:SkipAutoProps=true /p:CoverletOutput='./TestResults/'
 #        continue-on-error: true
 
       # Using the trx-parser action

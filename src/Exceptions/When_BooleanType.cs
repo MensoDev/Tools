@@ -16,7 +16,7 @@ internal partial class When
             ThrowException($"Argument '{paramName}' must be true", message, paramName, innerException);
     }
 
-    public void FalseOrNull([NotNull] bool? argument, string? message = null, Exception? innerException = null, string? paramName = null)
+    public void FalseOrNull([NotNull] bool? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
     {
         if (argument is false or null)
             ThrowException($"Argument '{paramName}' must be true", message, paramName, innerException);

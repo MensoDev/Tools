@@ -18,8 +18,8 @@ jobs:
         run: |
           dotnet restore
           dotnet build -c Release no-restore
-          dotnet test -c Release --no-restore --no-build --blame-hang --blame-hang-timeout 60s --logger trx --results-directory ./TestResults /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:ExcludeByAttribute='ExcludeFromCodeCoverageAttribute' /p:ExcludeByFile='**/*.g.cs' /p:Include='[Tools]*' /p:SkipAutoProps=true /p:CoverletOutput='./TestResults/'
-        continue-on-error: true
+          dotnet test -c Release --no-restore --no-build --blame-hang --blame-hang-timeout 60s --logger /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:ExcludeByAttribute='ExcludeFromCodeCoverageAttribute' /p:ExcludeByFile='**/*.g.cs' /p:Include='[Tools]*' /p:SkipAutoProps=true /p:CoverletOutput='./TestResults/'
+#        continue-on-error: true
 
       # Using the trx-parser action
       - name: Parse Trx files

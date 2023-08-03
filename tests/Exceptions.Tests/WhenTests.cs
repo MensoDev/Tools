@@ -538,5 +538,50 @@ public class WhenTests
         execution.Should().NotThrow<ArgumentException>();
     }
     
+    [Fact]
+    public void FalseOrNull_WhenBooleanArgumentIsFalse_ThrowsException()
+    {
+        // Arrange
+        const bool argument = false;
+
+        // Act
+        var execution = () => _when.FalseOrNull(argument);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'argument' must be true (Parameter 'argument')");
+    }
+    
+    [Fact]
+    public void FalseOrNull_WhenBooleanArgumentIsNull_ThrowsException()
+    {
+        // Arrange
+        bool? argument = null!;
+
+        // Act
+        var execution = () => _when.FalseOrNull(argument);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'argument' must be true (Parameter 'argument')");
+    }
+    
+    [Fact]
+    public void FalseOrNull_WhenBooleanArgumentIsTrue_DoesNotThrowException()
+    {
+        // Arrange
+        const bool argument = true;
+
+        // Act
+        var execution = () => _when.FalseOrNull(argument);
+
+        // Assert
+        execution.Should().NotThrow<ArgumentException>();
+    }
+    
     #endregion
 }

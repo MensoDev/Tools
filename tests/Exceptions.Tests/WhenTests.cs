@@ -539,13 +539,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void FalseOrNull_WhenBooleanArgumentIsFalse_ThrowsException()
+    public void NullOrFalse_WhenBooleanArgumentIsFalse_ThrowsException()
     {
         // Arrange
         const bool argument = false;
 
         // Act
-        var execution = () => _when.FalseOrNull(argument);
+        var execution = () => _when.NullOrFalse(argument);
 
         // Assert
         execution
@@ -555,13 +555,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void FalseOrNull_WhenBooleanArgumentIsNull_ThrowsException()
+    public void NullOrFalse_WhenBooleanArgumentIsNull_ThrowsException()
     {
         // Arrange
         bool? argument = null!;
 
         // Act
-        var execution = () => _when.FalseOrNull(argument);
+        var execution = () => _when.NullOrFalse(argument);
 
         // Assert
         execution
@@ -571,13 +571,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void FalseOrNull_WhenBooleanArgumentIsTrue_DoesNotThrowException()
+    public void NullOrFalse_WhenBooleanArgumentIsTrue_DoesNotThrowException()
     {
         // Arrange
         const bool argument = true;
 
         // Act
-        var execution = () => _when.FalseOrNull(argument);
+        var execution = () => _when.NullOrFalse(argument);
 
         // Assert
         execution.Should().NotThrow<ArgumentException>();

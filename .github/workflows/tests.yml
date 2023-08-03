@@ -7,6 +7,11 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-dotnet@v3
+        with:
+            dotnet-version: 7.0.x
+
+      - uses: actions/checkout@v3
       
       # Replace this whichever way you build your code
       - name: Build & Test dotnet code

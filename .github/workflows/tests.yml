@@ -25,7 +25,7 @@ jobs:
         run: dotnet build -c Release --no-restore
 
       - name: Test
-        run: dotnet test -c Release --no-build --no-restore --blame-hang --blame-hang-timeout 60s /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:ExcludeByAttribute='ExcludeFromCodeCoverageAttribute' /p:ExcludeByFile='**/*.g.cs' /p:Include='[MudBlazor]*' /p:SkipAutoProps=true /p:CoverletOutput='./TestResults/'
+        run: dotnet test -c Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:SkipAutoProps=true /p:CoverletOutput='./TestResults/'
 
       - name: Publish coverage
         uses: codecov/codecov-action@v3

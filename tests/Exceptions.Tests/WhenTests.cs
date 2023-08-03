@@ -231,13 +231,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void EmptyOrNull_WhenStringArgumentIsEmpty_ThrowsException()
+    public void NullOrEmpty_WhenStringArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = string.Empty;
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution
@@ -247,13 +247,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void EmptyOrNull_WhenStringArgumentIsNull_ThrowsException()
+    public void NullOrEmpty_WhenStringArgumentIsNull_ThrowsException()
     {
         // Arrange
         string argument = null!;
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution
@@ -263,13 +263,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void EmptyOrNull_WhenStringArgumentIsNotEmptyOrNull_DoesNotThrowException()
+    public void NullOrEmpty_WhenStringArgumentIsNotEmptyOrNull_DoesNotThrowException()
     {
         // Arrange
         const string argument = "not empty";
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution.Should().NotThrow();
@@ -354,13 +354,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void EmptyOrNull_WhenEnumerableArgumentIsEmpty_ThrowsException()
+    public void NullOrEmpty_WhenEnumerableArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = Enumerable.Empty<object>();
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution
@@ -370,13 +370,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void EmptyOrNull_WhenEnumerableArgumentIsNull_ThrowsException()
+    public void NullOrEmpty_WhenEnumerableArgumentIsNull_ThrowsException()
     {
         // Arrange
         IEnumerable<object> argument = null!;
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution
@@ -386,13 +386,13 @@ public class WhenTests
     }
 
     [Fact]
-    public void EmptyOrNull_WhenEnumerableArgumentIsNotEmpty_DoesNotThrowException()
+    public void NullOrEmpty_WhenEnumerableArgumentIsNotEmpty_DoesNotThrowException()
     {
         // Arrange
         var argument = new[] { new object() };
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution.Should().NotThrow();
@@ -432,13 +432,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void EmptyOrNull_WhenGuidArgumentIsEmpty_ThrowsException()
+    public void NullOrEmpty_WhenGuidArgumentIsEmpty_ThrowsException()
     {
         // Arrange
         var argument = Guid.Empty;
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution
@@ -448,13 +448,13 @@ public class WhenTests
     }
     
     [Fact]
-    public void EmptyOrNull_WhenGuidArgumentIsNull_ThrowsException()
+    public void NullOrEmpty_WhenGuidArgumentIsNull_ThrowsException()
     {
         // Arrange
         Guid? argument = null;
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution
@@ -470,7 +470,7 @@ public class WhenTests
         var argument = Guid.NewGuid();
 
         // Act
-        var execution = () => _when.EmptyOrNull(argument);
+        var execution = () => _when.NullOrEmpty(argument);
 
         // Assert
         execution.Should().NotThrow<ArgumentException>();

@@ -10,7 +10,7 @@ internal partial class When
             ThrowException($"Argument '{paramName}' must not be empty", message, paramName, innerException);
     }
 
-    public void EmptyOrNull<T>([NotNull] IEnumerable<T>? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
+    public void NullOrEmpty<T>([NotNull] IEnumerable<T>? argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
     {
         if (argument is null || argument.Any() is false)
             ThrowException($"Argument '{paramName}' must not be null or empty", message, paramName, innerException);

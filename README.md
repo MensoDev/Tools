@@ -1,68 +1,7 @@
-# Tools.Exceptions
-Helps avoid code complexity and improves readability
+## [Tools.Exceptions](https://github.com/MensoDev/Tools/tree/main/src/Exceptions) ![Nuget](https://img.shields.io/nuget/dt/Menso.Tools.Exceptions) [![Nuget](https://img.shields.io/nuget/v/Menso.Tools.Exceptions)](https://www.nuget.org/packages/Menso.Tools.Exceptions)
 
-## Quick Installation Guide
+Throws exceptions in a clearer and more contextual way, improving cognitive complexity
 
-### Install Package
 
-```shell 
-
-dotnet add package Menso.Tools.Exceptions
-
-```
-
-### Configuration (Optional)
-
-```csharp
-public void ConfigureExceptionLaucher(this IServiceCollection services)
-{
-    ExceptionSettings.CreateExceptionHandler = exceptionInformation =>
-    {
-        // Crete your own exception and return it
-        
-        // sample
-        var message = exceptionInformation.CustomMessage ?? exceptionInformation.DefaultMessage;
-        var paramName = exceptionInformation.ParamName;
-        return new ArgumentException(message, paramName, exceptionInformation.InnerException);
-    };
-}
-```
-
-```csharp
-public void ConfigureExceptionLaucher(this IServiceCollection services)
-{
-    ExceptionSettings.CreateHttpExceptionHandler = (statusCode, exceptionInformation) =>
-    {
-        // Crete your own exception and return it
-        
-        // sample
-        var message = exceptionInformation.CustomMessage ?? $"{errorStatusCode}: {exceptionInformation.DefaultMessage}";
-        return new HttpRequestException(message, exceptionInformation.InnerException, errorStatusCode);
-    };
-}
-```
-
-## Usage
-
-### Use cases:
-
-```csharp
-public void Sample()
-{
-    object? argument = null;
-    var message = "sample message";
-    var innerException = new Exception("Inner exception");
-    
-    Throw.When.BeNull(argument);
-    Throw.When.BeNull(argument, message);
-    Throw.When.BeNull(argument, message, innerException);
-              
-    Throw<CustomException>.When.BeNull(argument);
-    Throw<CustomException>.When.BeNull(argument, message);
-    Throw<CustomException>.When.BeNull(argument, message, innerException);    
-}
-```
-
-<br>
-
+<br><br><br>
 ### We are open to suggestions and collaborations

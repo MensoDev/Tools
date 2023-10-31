@@ -320,6 +320,151 @@ public class WhenTests
         execution.Should().NotThrow();
     }
     
+    [Fact]
+    public void NotEmpty_WhenStringArgumentIsNotEmpty_ThrowsException()
+    {
+        // Arrange
+        const string argument = "is not empty";
+
+        // Act
+        var execution = () => _when.NotEmpty(argument);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'argument' must be empty (Parameter 'argument')");
+    }
+
+    [Fact]
+    public void NotEmpty_WhenStringArgumentIsEmpty_DoesNotThrowException()
+    {
+        // Arrange
+        var argument = string.Empty;
+
+        // Act
+        var execution = () => _when.NotEmpty(argument);
+
+        // Assert
+        execution.Should().NotThrow();
+    }
+    
+    [Fact]
+    public void NotNullOrEmpty_WhenStringArgumentIsNotEmpty_ThrowsException()
+    {
+        // Arrange
+        const string argument = "is not empty";
+
+        // Act
+        var execution = () => _when.NotNullOrEmpty(argument);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'argument' must be null or empty (Parameter 'argument')");
+    }
+    
+    [Fact]
+    public void NotNullOrEmpty_WhenStringArgumentIsNotNull_ThrowsException()
+    {
+        // Arrange
+        const string argument = "is not null";
+
+        // Act
+        var execution = () => _when.NotNullOrEmpty(argument);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'argument' must be null or empty (Parameter 'argument')");
+    }
+
+    [Fact]
+    public void NotNullOrEmpty_WhenStringArgumentIsEmpty_DoesNotThrowException()
+    {
+        // Arrange
+        var argument = string.Empty;
+
+        // Act
+        var execution = () => _when.NotNullOrEmpty(argument);
+
+        // Assert
+        execution.Should().NotThrow();
+    }
+    
+    [Fact]
+    public void NotNullOrEmpty_WhenStringArgumentIsNull_DoesNotThrowException()
+    {
+        // Arrange
+        string argument = null!;
+
+        // Act
+        var execution = () => _when.NotNullOrEmpty(argument);
+
+        // Assert
+        execution.Should().NotThrow();
+    }
+
+    [Fact]
+    public void NotNullOrWhiteSpace_WhenStringArgumentIsNotEmpty_ThrowsException()
+    {
+        // Arrange
+        const string argument = "is not empty";
+
+        // Act
+        var execution = () => _when.NotNullOrWhiteSpace(argument);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'argument' must be null or white space (Parameter 'argument')");
+    }
+    
+    [Fact]
+    public void NotNullOrWhiteSpace_WhenStringArgumentIsNotNull_ThrowsException()
+    {
+        // Arrange
+        const string argument = "is not null";
+
+        // Act
+        var execution = () => _when.NotNullOrWhiteSpace(argument);
+
+        // Assert
+        execution
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("Argument 'argument' must be null or white space (Parameter 'argument')");
+    }
+
+    [Fact]
+    public void NotNullOrWhiteSpace_WhenStringArgumentIsEmpty_DoesNotThrowException()
+    {
+        // Arrange
+        var argument = string.Empty;
+
+        // Act
+        var execution = () => _when.NotNullOrWhiteSpace(argument);
+
+        // Assert
+        execution.Should().NotThrow();
+    }
+    
+    [Fact]
+    public void NotNullOrWhiteSpace_WhenStringArgumentIsNull_DoesNotThrowException()
+    {
+        // Arrange
+        string argument = null!;
+
+        // Act
+        var execution = () => _when.NotNullOrWhiteSpace(argument);
+
+        // Assert
+        execution.Should().NotThrow();
+    }
+    
     #endregion
 
     #region Enumerable Type

@@ -9,7 +9,13 @@ internal partial class When
         if (argument)
             ThrowException($"Argument '{paramName}' must be false", message, paramName, innerException);
     }
-    
+
+    public void True(bool? argument, string? message = null, Exception? innerException = null, string? paramName = null)
+    {
+        if(argument is true)
+            ThrowException($"Argument '{paramName}' must be false or null", message, paramName, innerException);
+    }
+
     public void False(bool argument, string? message = null, Exception? innerException = null, [CallerArgumentExpression(nameof(argument))] string? paramName = null)
     {
         if (argument is false)

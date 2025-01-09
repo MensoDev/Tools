@@ -15,7 +15,7 @@ public static class ListExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void Shuffle<T>(this IList<T> list, int seed)
     {
-        if(list == null) throw new ArgumentNullException(nameof(list));
+        ArgumentNullException.ThrowIfNull(list);
         var random = new Random(seed);
         var count = list.Count;
         while (count > 1)
@@ -34,8 +34,8 @@ public static class ListExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void Shuffle<T>(this IList<T> list)
     {
-        if(list == null) throw new ArgumentNullException(nameof(list));
-        
+        ArgumentNullException.ThrowIfNull(list);
+
         var count = list.Count;
         while (count > 1)
         {
@@ -53,7 +53,8 @@ public static class ListExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CryptoStrongShuffle<T>(this IList<T> list)
     {
-        if (list == null) throw new ArgumentNullException(nameof(list));
+        ArgumentNullException.ThrowIfNull(list);
+        
         var count = list.Count;
         using var generator = RandomNumberGenerator.Create();
         while (count > 1)

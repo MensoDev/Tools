@@ -31,17 +31,17 @@ internal static class ExceptionCreator
 
         if (information.InnerException is not null)
         {
-            var constructor = type.GetConstructor(new[] { typeof(string), typeof(Exception) }) ??
+            var constructor = type.GetConstructor([typeof(string), typeof(Exception)]) ??
                               throw new ArgumentException($"The exception of type {type.Name} does not have a suitable constructor. ctor (message, innerException)");
 
-            return (TException)constructor.Invoke(new object[] { message, information.InnerException });
+            return (TException)constructor.Invoke([message, information.InnerException]);
         }
         else
         {
-            var constructor = type.GetConstructor(new[] { typeof(string) }) ??
+            var constructor = type.GetConstructor([typeof(string)]) ??
                               throw new ArgumentException($"The exception of type {type.Name} does not have a suitable constructor. ctor (message)");
             
-            return (TException)constructor.Invoke(new object[] { message });
+            return (TException)constructor.Invoke([message]);
         }
     }
 

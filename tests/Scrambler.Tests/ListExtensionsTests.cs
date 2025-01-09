@@ -19,7 +19,7 @@ public class ListExtensionsTests
     public void Shuffle_WithSeed_ShouldThrowExceptionWhenListIsNull()
     {
         // Arrange
-        var list = (List<int>)null!;
+        List<int> list = null!;
         const int seed = 123;
         
         // Act
@@ -73,7 +73,7 @@ public class ListExtensionsTests
     public void CryptoStrongShuffle_ShouldThrowExceptionWhenListIsNull()
     {
         // Arrange
-        var list = (List<int>)null!;
+        List<int> list = null!;
 
         // Act
         var execution = () => list.CryptoStrongShuffle();
